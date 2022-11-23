@@ -1,0 +1,37 @@
+@use 'universal/distance.scss' as n;
+
+@media only screen and (min-width: 700px) {
+  nav {
+    width: 100%;
+
+    ul {
+      display: flex;
+      justify-content: center;
+      column-gap: 40px;
+      list-style: none;
+
+      li {
+        min-width: 100px;
+        min-height: 40px;
+        
+        .navLink {
+          display: inline-block;
+          padding-top: 20%;
+          width: 100%;
+          height: 100%;
+          margin: auto;
+          border-bottom: 2px solid navy;
+          text-decoration: none;
+          text-align: center;
+        }
+        .active {
+            border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+nav *{
+    @include n.noDistance;
+}
