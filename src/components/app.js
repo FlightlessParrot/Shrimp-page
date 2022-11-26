@@ -19,8 +19,9 @@ export default function App()
         <NavLink to="contact" className="navLink">Contact</NavLink>
         </li>
         </ul>
-        <Outlet />
+        
     </nav>
+    <Outlet />
     </>
     )
     

@@ -1,0 +1,20 @@
+$backgroundColor: #F0F0F0;
+$lightMoth: #DFFBFB;
+$moth:#9AE4E0;
+$skink: #6DDEE2;
+$myNavy: #101083;
+
+@mixin mothBorder{
+    border: 2px solid $moth;
+    border-radius: 20px;
+}
+
+@mixin mothyShadow{
+    box-shadow: 15px 10px 10px $lightMoth ;
+}
+
+@mixin contentBox{
+    background-color: $backgroundColor;
+    @include mothBorder();
+    @include mothyShadow();
+}

@@ -1,0 +1,19 @@
+@mixin head{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: large;
+}
+
+@mixin normalFont{
+    font-family: 'Arial Nova', 'Verdana', sans-serif;
+    color: black;
+}
+
+@mixin specialFont{
+font-family: 'Angsana Nova', 'Cordia New', 'Constantia';
+font-style: italic;
+}
+
+@mixin specialFontSec{
+    font-family: 'Constantia', 'Cordia New', 'Cordia';
+    font-stretch: italic;
+}
