@@ -1,0 +1,9 @@
+@use 'color';
+
+@mixin halo{
+    box-shadow: 20px 10px 30px color.$skink ;
+    &:hover{
+    box-shadow: 20px 10px 30px color.$lightMoth;
+    border-color: color.$skink;
+    cursor: pointer;
+}}

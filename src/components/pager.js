@@ -4,6 +4,9 @@ import Shrimp from "./shrimp";
 import Offer from "./offer";
 import Contact from "./contact";
 import App from './app'
+import First from './offer_components/first';
+import Second from './offer_components/second';
+import Third from './offer_components/third';
 
 const router = createBrowserRouter([
     {
@@ -18,6 +21,19 @@ const router = createBrowserRouter([
     {
       path: "offer",
       element: <Offer />,
+      children:[
+        {path:'first',
+      element:<First />},
+      {
+        path:'second',
+      element:<Second />
+      },
+      {
+        path:'third',
+      element:<Third />
+      }
+
+      ],
     },
     {
       path: "contact",

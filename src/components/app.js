@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import {NavLink, Outlet, useNavigate, useLocation} from "react-router-dom";
+import Foot from './foot'
 
 export default function App()
 {
@@ -22,6 +23,7 @@ export default function App()
         
     </nav>
     <Outlet />
+    <Foot />
     </>
     )
     
