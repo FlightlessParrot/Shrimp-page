@@ -1,14 +1,14 @@
 import React from "react";
-import { useRef, useReducer} from "react";
+import { useRef, useReducer } from "react";
 
 export default function ContactData(props) {
   const id = props.id;
-  const initValue={
+  const initValue = {
     name: false,
-    mail: [false,false],
-    tel: false
-  }
-  const [validate, validation]=useReducer(dispatch,initValue)
+    mail: [false, false],
+    tel: [false,false]
+  };
+  const [validate, validation] = useReducer(dispatch, initValue);
   const nameRef = useRef(null);
   const mailRef = useRef(null);
   const phoneRef = useRef(null);
@@ -23,8 +23,7 @@ export default function ContactData(props) {
       event.target.classList.remove("unvalidated");
       event.target.classList.add("validated");
       return true;
-    } 
-    else {
+    } else {
       event.target.classList.remove("validated");
       event.target.classList.add("unvalidated");
       return false;
@@ -32,25 +31,36 @@ export default function ContactData(props) {
   }
 
   function mailHandler(event) {
-    
-      const e = event.target;
-      if (!e.value.includes("@")) {
-        e.classList.remove("validated");
-        e.classList.add("unvalidated");
-        return true;}
-    return false;
+    const e = event.target;
+    if (e.value.includes("@") && e.value.includes(".")) {
+      e.classList.remove("unvalidated");
+      e.classList.add("validated");
+      return true;
+    }
+    else{
+     
+      e.classList.remove("unvalidated");
+      e.classList.add("unvalidated"); 
+      return false;
+    }
   }
 
-  function dispatch(prev, action){
-   const empty=emptyHandler(action)
-   console.log(prev)
-   switch(action.target.id)
-   {
-    case id+'0':{return({...prev,name: empty})}
-    case id+'1':{
-      return({...prev,mail: [empty, mailHandler(action)]})}
-    case id+'2':{return({...prev,tel: empty})}
-   }
+  function dispatch(prev, action) {
+    const empty = emptyHandler(action);
+    console.log(prev);
+    switch (action.target.id) {
+      case id + "0": {
+        return { ...prev, name: empty };
+      }
+      case id + "1": {
+        const ifMail = mailHandler(action);
+        return { ...prev, mail: [empty, ifMail] };
+      }
+      case id + "2": {
+        const numer= action.target.value.length>9 ? true: false;
+        return( {...prev, tel: [empty, numer] });
+      }
+    }
   }
 
   return (
@@ -75,9 +85,9 @@ export default function ContactData(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor={id + "3"}>Numer telefonu</label>
+          <label htmlFor={id + "2"}>Numer telefonu</label>
           <input
-            id={id + "3"}
+            id={id + "2"}
             type="tel"
             ref={phoneRef}
             onKeyUp={validation}

@@ -62,12 +62,13 @@ footer {
 }
 
 div:has(>input){
-  margin: 6px 4px 6px 4px;
+  margin: 8px 6px 8px 4px;
+  padding: 10px 10px 10px 10px;
   label{
-    margin: 2px 2px 2px 2px;
+    margin: 4px 4px 4px 4px;
   }
   input{
-    margin: 2px 2px 2px 2px;
+    margin: 4px 4px 4px 4px;
     
   }
 }
