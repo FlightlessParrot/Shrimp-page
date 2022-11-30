@@ -32,15 +32,12 @@ export default function ContactData(props) {
   }
 
   function mailHandler(event) {
-    if (emptyHandler(event)) {
+    
       const e = event.target;
       if (!e.value.includes("@")) {
         e.classList.remove("validated");
         e.classList.add("unvalidated");
-        return true;
-      }
-      return false;
-    }
+        return true;}
     return false;
   }
 
@@ -50,7 +47,8 @@ export default function ContactData(props) {
    switch(action.target.id)
    {
     case id+'0':{return({...prev,name: empty})}
-    case id+'1':{return({...prev,mail: [empty, prev.mail[1]]})}
+    case id+'1':{
+      return({...prev,mail: [empty, mailHandler(action)]})}
     case id+'2':{return({...prev,tel: empty})}
    }
   }

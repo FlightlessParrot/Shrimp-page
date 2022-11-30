@@ -6,7 +6,7 @@ export default function Mail(){
 
     return(
         <>
-        <ContactData></ContactData>
+        <ContactData id='mailConatct'></ContactData>
         </>
     )
 }
