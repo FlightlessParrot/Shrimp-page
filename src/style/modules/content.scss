@@ -1,0 +1,46 @@
+@use "../universal/distance.scss";
+@use "../universal/fonts.scss";
+@use "../universal/color";
+
+%element{
+  width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.inactiveContent{
+    @extend %element;
+    @include color.mothBorder;
+    @include distance.contentDistance;
+    background-color: color.$lightMoth;
+  .listTitle{
+    font-weight: bold;
+  }
+  ul{
+    list-style: circle;
+    li{margin-top: 6px;
+    margin-bottom: 6px;}
+    }
+
+}
+.content {
+    @extend %element;
+    @include color.contentBox;
+    @include distance.contentDistance;
+  
+  
+  &:hover {
+    box-shadow: 20px 10px 20px color.$moth;
+    border-color: color.$skink;
+    cursor: pointer;
+  }}
+  .title{
+    @include distance.contentDistance;
+    position: relative;
+    left: -8px;
+    border-bottom: 2px solid  color.$myNavy;
+    
+    border-bottom-right-radius: 50px ;
+    background: linear-gradient(to right, color.$myNavy, color.$skink, color.$lightMoth, transparent);
+  }

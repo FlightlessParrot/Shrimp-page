@@ -1,14 +1,16 @@
 import React from 'react'
-import Box from './offer_components/box'
+import Box from './box'
+import {Outlet} from 'react-router-dom'
 
 export default function Offer()
 {
-    return(
+    return(<>
         <div>
         <Box link='first' name='Strona wizytówka' />
         <Box link='second' name='Sklep internetowy'/>
-        <Box link='third' name='Inne'/>
+        <Box link='third' name='Pozostałe'/>
         </div>
-        
+        <Outlet></Outlet>
+        </>
     )
 }

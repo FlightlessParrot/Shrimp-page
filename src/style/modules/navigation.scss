@@ -1,0 +1,56 @@
+@use "../universal/distance.scss";
+@use "../universal/color.scss";
+@use "../universal/fonts.scss";
+
+nav {
+    position: sticky;
+    top: 10px;
+    width: 90%;
+    border-top: 2px solid color.$myNavy;
+    background: linear-gradient(
+      to bottom,
+      color.$backgroundColor,
+      color.$lightMoth, color.$moth
+    );
+    /*box-shadow: 20px 10px 30px color.$skink;*/
+    border-bottom: 4px solid color.$skink;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 10px 10px 10px 10px;
+    margin: auto;
+    z-index: 1;
+    * {
+      @include distance.noDistance;
+    }
+    
+    ul {
+      display: flex;
+      justify-content: center;
+      @media (min-width:641px) {column-gap: 40px;}
+      list-style: none;
+  
+      li {
+        min-width: 100px;
+        min-height: 40px;
+  
+        .navLink {
+          @include fonts.normalFont;
+          display: inline-block;
+          padding-top: 10px;
+          width: 80%;
+          height: 80%;
+          margin: auto;
+          border-bottom: 2px solid color.$myNavy;
+          
+          text-align: center;
+          &:hover {
+            color: color.$skink;
+            border-color: color.$skink;
+          }
+        }
+        .active {
+          border-bottom: none;
+        }
+      }
+    }
+  }

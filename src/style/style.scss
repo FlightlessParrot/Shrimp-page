@@ -1,116 +1,53 @@
 @use "universal/distance.scss";
 @use "universal/color.scss";
 @use "universal/fonts.scss";
-@use 'universal/halo.scss';
-
+@use "universal/halo.scss";
+@forward "./modules/content.scss";
+@forward "./modules/navigation";
 body {
   background-image: url("../../public/images/sea2.jpg");
- background-position: top;
+  background-position: top;
   background-repeat: no-repeat;
   background-color: color.$backgroundColor;
   @include fonts.normalFont;
   min-width: 360px;
 }
-a{
+a {
   text-decoration: none;
-  color:black;
+  color: black;
 }
 
-nav {
-  position:sticky;
-  width: 90%;
-  
-  background: linear-gradient(
-    to bottom,
-    color.$backgroundColor,
-    color.$lightMoth
-  );
-  /*box-shadow: 20px 10px 30px color.$skink;*/
-  border-bottom: 3px solid color.$skink;
-  border-top: none;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  padding: 10px 10px 10px 10px;
-  margin: auto;
-  * {
-    @include distance.noDistance;
-  }
-  
-  ul {
-    display: flex;
-    justify-content: center;
-    @media (min-width:641px) {column-gap: 40px;}
-    list-style: none;
-
-    li {
-      min-width: 100px;
-      min-height: 40px;
-
-      .navLink {
-        @include fonts.normalFont;
-        display: inline-block;
-        padding-top: 10px;
-        width: 80%;
-        height: 80%;
-        margin: auto;
-        border-bottom: 2px solid color.$myNavy;
-        
-        text-align: center;
-        &:hover {
-          color: color.$skink;
-          border-color: color.$skink;
-        }
-      }
-      .active {
-        border-bottom: none;
-      }
-    }
-  }
-}
-
-.content {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 12px 20px 12px 20px;
-  @include color.contentBox;
-  @include distance.contentDistance;
-
-
-&:hover {
-  box-shadow: 20px 10px 20px color.$moth;
-  border-color: color.$skink;
-  cursor: pointer;
-}}
 h1 {
   margin: auto;
   text-align: center;
   @include fonts.head;
   font-size: 1.5em;
 }
-div:has(>.box){
-  min-height:150px;
+div:has(> .box) {
+  @media only screen and (min-width:480px)
+  { height: 150px;}
   column-gap: 10px;
   display: flex;
   justify-content: space-around;
-@include distance.contentDistance;
-@include fonts.specialFont;
-.box{
-  flex-basis: 150px;
-  flex-shrink: 1;
- background-color: color.$moth;
- border-radius: 25%;
- text-align: center;
- padding: 60px 10px 10px 10px;
- @include halo.halo;
- border-bottom: 6px solid color.$myNavy;
- border-right: 2px solid color.$myNavy;
- 
-}}
+  @include distance.contentDistance;
+  @include fonts.specialFont;
+  .box {
+    flex-basis: 150px;
+    flex-shrink: 1;
+    background-color: color.$moth;
+    border-radius: 25%;
+    text-align: center;
+    @media only screen and (min-width:480px){padding: 60px 10px 10px 10px;}
+    @media only screen and (max-width: 480px){padding: 20px 10px 20px 10px;}
+    @include halo.halo;
+    border-bottom: 6px solid color.$myNavy;
+    border-right: 2px solid color.$myNavy;
+  }
+}
 footer {
   width: 90%;
-  background: linear-gradient(to top, color.$myNavy, color.$skink);
-  border-top: 4px solid color.$skink;
+  background: linear-gradient(to top, color.$skink, color.$lightMoth);
+  border-bottom: 2px solid color.$myNavy;
   margin: auto;
   border-radius: 30px;
   @include fonts.specialFontSec;
@@ -119,4 +56,28 @@ footer {
   .companyName {
     font-weight: bold;
   }
+}
+.special{
+  @include fonts.specialFont
+}
+
+div:has(>input){
+  margin: 6px 4px 6px 4px;
+  label{
+    margin: 2px 2px 2px 2px;
+  }
+  input{
+    margin: 2px 2px 2px 2px;
+    
+  }
+}
+.validated{
+  box-shadow: 0px 0px 10px green;
+  border: 2px solid green;
+}
+.unvalidated{
+  box-shadow: 0px 0px 10px red;
+  border-color: red;
+  border-width: 2px;
+  border-style: solid;
 }
