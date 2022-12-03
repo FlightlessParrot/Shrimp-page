@@ -4,6 +4,8 @@
 @use "universal/halo.scss";
 @forward "./modules/content.scss";
 @forward "./modules/navigation";
+@forward "./modules/validation.scss";
+
 body {
   background-image: url("../../public/images/sea2.jpg");
   background-position: top;
@@ -69,16 +71,18 @@ div:has(>input){
   }
   input{
     margin: 4px 4px 4px 4px;
-    
   }
 }
-.validated{
-  box-shadow: 0px 0px 10px green;
-  border: 2px solid green;
+
+div:has(>textarea) {*{
+  margin-right: auto;
+  margin-left: auto;
 }
-.unvalidated{
-  box-shadow: 0px 0px 10px red;
-  border-color: red;
-  border-width: 2px;
-  border-style: solid;
+p{
+  text-align: center;
+}}
+textarea{
+  width: 80%;
+  height: 200px;
+  @include fonts.normalFont
 }

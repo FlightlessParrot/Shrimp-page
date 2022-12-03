@@ -1,0 +1,16 @@
+@use "../universal/color.scss";
+@use "../universal/fonts.scss";
+.validated{
+  box-shadow: 0px 0px 10px green;
+  border: 2px solid green;
+}
+.unvalidated{
+  box-shadow: 0px 0px 10px red;
+  border-color: red;
+  border-width: 2px;
+  border-style: solid;
+}
+.errorMessage{
+  @include fonts.specialFontSec;
+  color: color.$myNavy;
+}

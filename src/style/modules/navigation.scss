@@ -46,6 +46,8 @@ nav {
           &:hover {
             color: color.$skink;
             border-color: color.$skink;
+            text-shadow: 2px 2px 4px color.$myNavy;
+            
           }
         }
         .active {
