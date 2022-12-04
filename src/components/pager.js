@@ -8,6 +8,7 @@ import First from "./offer_components/first";
 import Second from "./offer_components/second";
 import Third from "./offer_components/third";
 import Mail from "./contact_components/mail";
+import Order from "./contact_components/order";
 
 const router = createBrowserRouter([
   {
@@ -40,11 +41,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "mail",
-            element: <Mail />,
+            element: <Mail title='Treść wiadomości' id='mailContact'/>,
           },
           {
             path: "order",
-            element: <Contact />,
+            element: <Order title='Opis zamówienia' id='orderContact'/>
           },
         ],
       },

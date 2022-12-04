@@ -14,10 +14,10 @@ export default function App()
         <NavLink to="shrimp" className="navLink">Shrimp</NavLink>
         </li>
         <li>
-        <NavLink to="offer" className="navLink">Offer</NavLink>
+        <NavLink to="offer" className="navLink">Oferta</NavLink>
         </li>
         <li>
-        <NavLink to="contact" className="navLink">Contact</NavLink>
+        <NavLink to="contact" className="navLink">Kontakt</NavLink>
         </li>
         </ul>
         

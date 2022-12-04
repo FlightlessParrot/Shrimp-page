@@ -1,20 +1,11 @@
 import React from "react";
-import { useRef, useReducer,useEffect } from "react";
+import { useReducer, useEffect } from "react";
 import ValidationMessage from "./validation_message";
+import { useFormContext } from "react-hook-form";
 
 export default function ContactData(props) {
   const id = props.id;
-  useEffect(()=>{
-    let value={name: nameRef.value, mail: mailRef.value, tel: phoneRef.value}
-    props.value(...value)
-    for(let x in value)
-    {
-      value[c]='0'
-    }
-    dispatch(initValue)
-    dispatchFocus(initValueFocus)
-  },[props.submit])
- 
+  const {register, clearErrors, setError,  formState} =useFormContext()
   const initValue = {
     name: false,
     mail: [false, false],
@@ -26,11 +17,32 @@ export default function ContactData(props) {
     tel: false,
   };
   const [validate, validation] = useReducer(dispatch, initValue);
-  const [focused, focusion] = useReducer(dispatchFocus, initValueFocus)
-  const nameRef = useRef(null);
-  const mailRef = useRef(null);
-  const phoneRef = useRef(null);
+  const [focused, focusion] = useReducer(dispatchFocus, initValueFocus);
+  
+  useEffect(() =>{
+    validation( 0)
+    focusion( 0)
+  },[formState.isSubmitted])
+  useEffect(() => {
+    
+    !validate.name 
+      ?
+       setError("name", {
+          type: 'value',
+          message: "Podaj imię lub firmę"
+        })
+       : clearErrors("name");
+    if (!validate.mail[1] && !validate.tel[1]) {
+      setError("mail", { type: "pusty", message: "Podaj mail lub tel" });
+      setError("tel", { type: "pusty", message: "Podaj imię lub firmę" });
+    } else {
+       clearErrors("mail");
+       clearErrors("tel");
+    }
+  }, 
+  [validate, formState.isSubmitted]);
 
+ 
   function emptyHandler(event) {
     event.target.value = event.target.value.trim();
     while (event.target.value.length > 30) {
@@ -78,10 +90,11 @@ export default function ContactData(props) {
     }
   }
   function dispatch(prev, action) {
+    if(action===0){ return initValue}
     const empty = emptyHandler(action);
     switch (action.target.id) {
       case id + "0": {
-        return { ...prev, name: empty };
+      return { ...prev, name: empty };
       }
       case id + "1": {
         const ifMail = mailHandler(action);
@@ -89,13 +102,16 @@ export default function ContactData(props) {
       }
       case id + "2": {
         onlyNumberHandler(action);
+        const empty2 = emptyHandler(action);
         const ifNine = ifNineHandler(action);
-        return { ...prev, tel: [empty, ifNine] };
+        
+        return { ...prev, tel: [empty2, ifNine] };
       }
-    }
+    } 
   }
-  function dispatchFocus(prev, action){
-    validation(action)
+  function dispatchFocus(prev, action) {
+    if(action===0){ return initValueFocus}
+    validation(action);
     switch (action.target.id) {
       case id + "0": {
         return { ...prev, name: true };
@@ -110,42 +126,51 @@ export default function ContactData(props) {
   }
   return (
     <>
-      <div className="content">
+      <div className="inactiveContent">
         <div>
-          <ValidationMessage empty={validate.name} wrong="false" control={focused.name}>
+          <ValidationMessage
+            empty={validate.name}
+            wrong="false"
+            control={focused.name}
+          >
             <label htmlFor={id + "0"}>Imię lub firma</label>
             <input
-              id={id + "0"}
+             {...register('name')}
+              id={id+'0'}
               type="text"
-              name={id + "0"}
               onKeyUp={validation}
               onKeyDown={validation}
-              ref={nameRef}
               onFocus={focusion}
             ></input>
           </ValidationMessage>
         </div>
         <div>
-          <ValidationMessage empty={validate.mail[0]} wrong={validate.mail[1]} control={focused.mail}>
+          <ValidationMessage
+            empty={validate.mail[0]}
+            wrong={validate.mail[1]}
+            control={focused.mail}
+          >
             <label htmlFor={id + "1"}>adres e-mail</label>
             <input
+              {...register("mail")}
               id={id + "1"}
-              name={id + "1"}
               type="email"
-              ref={mailRef}
               onKeyUp={validation}
               onFocus={focusion}
             ></input>
           </ValidationMessage>
         </div>
         <div>
-          <ValidationMessage empty={validate.tel[0]} wrong={validate.tel[1]} control={focused.tel}>
+          <ValidationMessage
+            empty={validate.tel[0]}
+            wrong={validate.tel[1]}
+            control={focused.tel}
+          >
             <label htmlFor={id + "2"}>Numer telefonu</label>
             <input
               id={id + "2"}
-              name={id + "2"}
               type="tel"
-              ref={phoneRef}
+              {...register('tel')}
               onKeyUp={validation}
               onKeyDown={validation}
               onFocus={focusion}

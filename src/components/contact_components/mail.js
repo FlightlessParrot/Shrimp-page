@@ -1,18 +1,35 @@
-import React,{useState} from "react";
+import React, {useEffect} from "react";
 import ContactData from "./dane";
 import Message from "./message";
+import SubmitButton from "./submit_button"
+import {useForm,  FormProvider} from "react-hook-form"
 
-export default function Mail(){
-    const data={}
-    const[submit,send]=useState(false)
+export default function Mail(props){
+  
+    
 
-    function collectData(object){
-        data={...data, object}
+    const method=useForm({name: '', mail: '', tel: '', messager: ''})
+ 
+    useEffect(()=>{
+        
+           method.reset()
+            }, [method.formState.isSubmitSuccessful])
+    function submitHandler(data, e)
+    {   
+        
+        
+        console.log(data)
     }
+   
     return(
         <>
-        <ContactData id='mailContact' submit={submit} value={collectData} />
-        <Message title='Treść wiadomości' submit={submit} value={collectData}/>
+        <FormProvider {...method}>
+        <form onSubmit={method.handleSubmit(submitHandler)}>
+        <ContactData id={props.id}  />
+        {props.children}
+        <Message title={props.title} />
+        <SubmitButton></SubmitButton>
+        </form></FormProvider>
         </>
     )
 }

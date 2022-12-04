@@ -12,7 +12,7 @@ export default function First(){
         <span className="special">W projekcie kierujemy się wytycznymi klienta. Projekt jest indywidualizowany, 
             a poprawki nanoszone bez dodatkowych opłat</span></li>
             <li><span>Fixed Price </span><span className="special">wiesz ile zapłacisz - u nas nie ma ukrytych kosztów</span></li>
-        <li><span> Przeniesienie majątkowych praw autorskich</span>
+        <li><span> Przeniesienie majątkowych praw autorskich. </span>
         <span className="special">Kupiona strona będzie w 100% Twoja. Nigdy nie utracisz do niej praw.</span></li>
         <li>Pomoc w umieszczeniu strony na serwerze</li></ul></div>
         <div className="inactiveContent"><span>Serwis strony(Dodatkowo płatne w subskrypcji 200 zł netto rocznie).</span>
