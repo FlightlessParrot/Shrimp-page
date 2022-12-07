@@ -4,7 +4,7 @@ export default function ValidationMessage(props) {
   
   const wrong = props.control && !props.wrong ? { display: "inline" } : { display: "none" };
   const empty = props.control && !props.empty ? { display: "inline" } : { display: "none" };
-
+  
     
   
     return (

@@ -100,27 +100,23 @@ div:has(> input[type="submit"]) {
 }
 
 div:has(> div > textarea) {
-  *{
+  * {
     display: block;
     margin-right: auto;
     margin-left: auto;
   }
-    
-      textarea {
-        
-        width: 80%;
-        height: 200px;
-        @include fonts.normalFont;
-      }
-    
-    
-  
+
+  textarea {
+    width: 80%;
+    height: 200px;
+    @include fonts.normalFont;
+  }
 
   p {
     text-align: center;
   }
 }
-.error{
+.error {
   filter: blur(0px);
   z-index: 2;
   display: initial;
@@ -132,20 +128,27 @@ div:has(> div > textarea) {
   background-color: color.$backgroundColor;
   border: 4px solid red;
 }
-.blur{
+.blur {
   background-color: rgba($color: #141414, $alpha: 0.8);
   position: fixed;
   top: 0px;
   left: 0px;
   display: block;
   width: 100%;
-  height:100%;
- 
+  height: 100%;
+
   z-index: 1;
 }
-.hidden{
+.hidden {
   display: none;
 }
-[inert=true]{
-  filter: blur(10px)
+
+button{
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bolder;
+  border-radius: 20px;
+  border-color: red($color: #000000);
+  background-color: color.$backgroundColor;
 }
+

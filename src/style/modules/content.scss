@@ -8,7 +8,18 @@
     margin-right: auto;
     
 }
+%content{
+  @extend %element;
+  @include color.contentBox;
+  @include distance.contentDistance;
 
+
+&:hover {
+  box-shadow: 20px 10px 20px color.$moth;
+  border-color: color.$skink;
+  cursor: pointer;
+}
+}
 .inactiveContent{
     @extend %element;
     @include color.mothBorder;
@@ -25,16 +36,7 @@
 
 }
 .content {
-    @extend %element;
-    @include color.contentBox;
-    @include distance.contentDistance;
-  
-  
-  &:hover {
-    box-shadow: 20px 10px 20px color.$moth;
-    border-color: color.$skink;
-    cursor: pointer;
-  }}
+    @extend %content}
   .title{
     @include distance.contentDistance;
     position: relative;
@@ -44,3 +46,30 @@
     border-bottom-right-radius: 50px ;
     background: linear-gradient(to right, color.$myNavy, color.$skink, color.$lightMoth, transparent);
   }
+
+  .content-enter{
+    position:relative;
+    left: 2000px;
+    opacity: 0;
+    @extend %content;
+ }
+ .content-exit{
+  position: relative;
+    right: 0px;
+    opacity: 1;
+     @extend %content;
+ }
+ .content-enter-active{
+    position: relative;
+    left: 0px;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+    @extend %content;
+ }
+ .content-exit-active{
+  position: relative;
+  right: 2000px;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  @extend %content;
+ }

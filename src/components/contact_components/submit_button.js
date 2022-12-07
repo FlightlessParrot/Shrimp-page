@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import ErrorMessage from "./error_message"
+import ValidateErrors from "./validate_erros";
 export default function SubmitButton() {
     const[blad, aktual]=useState(false)
   const {
@@ -20,7 +21,6 @@ export default function SubmitButton() {
           element.blur()
           element.classList.remove("validated","unvalidated" );
           
-          console.log(element);
         }
         k++;
         inter = document.getElementsByTagName("input");
@@ -32,7 +32,7 @@ export default function SubmitButton() {
     <div>
       <input type="submit" onClick={clickHandler} value="Wyślij"></input>
     </div>
-    <ErrorMessage control={blad} validate={aktual} />
+    <ErrorMessage control={blad} validate={aktual}><ValidateErrors /></ErrorMessage>
     </>
   );
 }

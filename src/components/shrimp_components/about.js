@@ -12,7 +12,7 @@ export default function About(){
         }
         else 
         {
-            clicked(true)
+        clicked(true)
         }
     }
     if(ifClick===false)

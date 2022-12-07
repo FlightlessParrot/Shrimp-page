@@ -1,35 +1,33 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 
-export default function Welcome()
+export default function Welcome(props)
 {
+    const node=useRef(null)
     const [ifClick, clicked]=useState(false)
-
+    const textNode1=props.text1
+    const textNode2=props.text2
     function clickHandler ()
-    {
-        if(ifClick===true)
-        {
-        clicked(false)
-        }
-        else 
-        {
-            clicked(true)
-        }
+    {   
+        clicked(!ifClick)
+     
     }
 
-    if(ifClick===false)
-    {
-    return (<div className='content' onClick={clickHandler}>
-        <h1>Witaj na stronie (prawdopodobnie) jedynej krewetki, która tworzy strony internetowe </h1>
+
+return(
+    <SwitchTransition>
+        <CSSTransition
+        key={ifClick ? 'hi' : 'bye'}
+        nodeRef={node}
+        classNames='content'
+        timeout={500}
+        ><div  onClick={clickHandler} ref={node} className='content'>
+        {ifClick ? textNode1 : textNode2}
         </div>
-    );
-    }
-    else{return(
-        <div className='content' onClick={clickHandler}>
-        <p> Shrimp jest polską firmą web-deweloperską. 
-        Zajmujemy się tworzeniem stron wizytówek, mając na względzie, 
-        że profesjonalny wygląd buduje się tworząc
-        przejrzysty interface i minimalizując ilość grafik oraz animacji </p>
-        </div>);
-    }
+
+        </CSSTransition>
+    </SwitchTransition>
+)
+
 }

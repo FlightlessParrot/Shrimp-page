@@ -8,7 +8,6 @@ export default function Message(props) {
   useEffect(() => {
     validation(false);
     console.log("kra");
-    //setError("messager", { type: "pusty", message: "Napisz wiadomość" })
   }, [formState.isSubmitSuccessful]);
 
   useEffect(() => {
