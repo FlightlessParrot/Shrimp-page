@@ -13,16 +13,12 @@ export default function Mail(props) {
   useEffect(() => {
     method.reset();
   }, [method.formState.isSubmitSuccessful]);
-  function submitHandler(data, e) {
-    try {
-      asynchronus(data, validate, message);
-    } catch (err) {
-      console.log(err);
-      console.log('ojoj')
-      validate(true)
-      message(e)
-    }
-    console.log(data);
+
+  function submitHandler(data, event) {
+    const typeData={type: 'mail', ...data}
+    console.log(typeData)
+    asynchronus(typeData, validate, message);
+    
   }
 
   return (
@@ -33,7 +29,7 @@ export default function Mail(props) {
           <Message title={props.title} />
           <SubmitButton></SubmitButton>
           <ErrorMessage control={control} validate={validate}>
-            {hasError}
+            <>{hasError?.message}</>
           </ErrorMessage>
         </form>
       </FormProvider>

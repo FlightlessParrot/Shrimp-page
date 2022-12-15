@@ -83,7 +83,6 @@ export default function ContactData(props) {
   }
   function onlyNumberHandler(event) {
     let last = event.target.value.slice(-1);
-    console.log(Number.isInteger(last));
     last = Number(last);
     if (!Number.isInteger(last)) {
       event.target.value = event.target.value.slice(0, -1);

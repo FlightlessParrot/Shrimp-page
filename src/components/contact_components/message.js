@@ -7,11 +7,9 @@ export default function Message(props) {
   const { register, clearErrors, setError, formState } = useFormContext();
   useEffect(() => {
     validation(false);
-    console.log("kra");
   }, [formState.isSubmitSuccessful]);
 
   useEffect(() => {
-    console.log(validate);
     if (!validate) {
       setError("messager", { type: "pusty", message: "Napisz wiadomość" });
     } else {

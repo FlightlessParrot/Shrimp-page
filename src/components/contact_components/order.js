@@ -25,7 +25,9 @@ export default function Order(props) {
           <div className="inactiveContent">
             <span>Ilość podstron</span>
             <input
-              type="number"
+              type="number" 
+              name='page'
+              
               {...method.register("podstrony")}
               min="1"
               max="25"
