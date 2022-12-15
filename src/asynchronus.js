@@ -6,7 +6,7 @@ export default async function form(dataObject, validate, message) {
       data.append(key, dataObject[key]);
     }
 
-    const response = await fetch("http://localhost:8000/", {
+    const response = await fetch("http://localhost:8000/index.php", {
       method: "POST",
       headers: { "Content-Type": "multipart/form-data" },
       body: data,
