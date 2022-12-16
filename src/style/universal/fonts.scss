@@ -19,6 +19,6 @@ color:$fontColor;
 
 @mixin specialFontSec{
     font-family: 'Constantia', 'Cordia New', 'Cordia';
-    font-stretch: italic;
+    font-style: italic;
     color:$fontColor;
 }

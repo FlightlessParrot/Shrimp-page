@@ -36,7 +36,13 @@
 
 }
 .content {
-    @extend %content}
+    @extend %content;
+  &::after{
+    content: url('../../../public/images/roczka.png');
+  }
+  }
+
+
   .title{
     @include distance.contentDistance;
     position: relative;

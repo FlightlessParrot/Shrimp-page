@@ -1,6 +1,7 @@
 <?
 header('Access-Control-Allow-Origin: http://localhost:3000');
-
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 class mail
 {
 
@@ -13,8 +14,8 @@ class mail
       
         $this->name = $this->sanitize($_POST['name']);
         $this->tel = $this->sanitize($_POST['tel']);
-        $this->message = $this->sanitize($_POST['message']);
-        $this->mail= $this->sanitizeMail($_POST['mail']);
+        $this->message = $this->sanitize($_POST['messager']);
+       $this->mail= isset($_POST['mail']) ?  $this->sanitizeMail($_POST['mail']): 'client@client.com';
     }
     function sanitize($string)
     {
@@ -29,14 +30,14 @@ class mail
     {
         $msg=$this->name.' '.$this->tel.' <br> '.$this->message.' <br> '.$others;
         echo $msg;
-        mail('konrad.strauss.97@gmail.com', "Mail od ".$this->name, $msg, 'frome: '.$this->mail);
+        mail('shrimpinweb@gmail.com', "Mail od ".$this->name, $msg, 'From: '.$this->mail);
     }
 }
 
 class offer extends mail
 {
     private $mess;
-    private $oth;
+    public $oth;
     function __construct()
     {    
         $this->oth='';
@@ -56,11 +57,12 @@ class offer extends mail
     {
         foreach($this->mess as $value)
         {
-            $this->oath.=$value[0].$value[1].'<br>';
+            $this->oth.=$value[0].$value[1].'<br>';
         }
     }
   
 }
+
 echo implode(" ",$_POST);
 if(isset($_POST['type']))
 {
@@ -72,7 +74,7 @@ $mailMan->sent('');
 }
 else{
     $mailMan=new offer;
-    $mailMan->sent($mailMan->oath);
+    $mailMan->sent($mailMan->oth);
 }}
 echo 'I am working'
 ?>

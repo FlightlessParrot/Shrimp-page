@@ -110,6 +110,7 @@ div:has(> div > textarea) {
     width: 80%;
     height: 200px;
     @include fonts.normalFont;
+    margin-bottom: 10px;
   }
 
   p {
