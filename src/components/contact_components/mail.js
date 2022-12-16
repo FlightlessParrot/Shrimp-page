@@ -8,7 +8,7 @@ import ErrorMessage from "./error_message";
 export default function Mail(props) {
   const [control, validate] = useState(false);
   const [hasError, message] = useState(null);
-  const method = useForm({ name: "", mail: "", tel: "", messager: "" });
+  const method = useForm();
 
   useEffect(() => {
     method.reset();

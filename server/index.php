@@ -1,4 +1,6 @@
 <?
+header('Access-Control-Allow-Origin: http://localhost:3000');
+
 class mail
 {
 
@@ -26,6 +28,7 @@ class mail
     function sent($others)
     {
         $msg=$this->name.' '.$this->tel.' <br> '.$this->message.' <br> '.$others;
+        echo $msg;
         mail('konrad.strauss.97@gmail.com', "Mail od ".$this->name, $msg, 'frome: '.$this->mail);
     }
 }
@@ -58,8 +61,10 @@ class offer extends mail
     }
   
 }
+echo implode(" ",$_POST);
 if(isset($_POST['type']))
 {
+    
 if($_POST['type']==='mail')
 {
 $mailMan=new mail;
