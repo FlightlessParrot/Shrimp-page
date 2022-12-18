@@ -9,12 +9,18 @@ import Second from "./offer_components/second";
 import Third from "./offer_components/third";
 import Mail from "./contact_components/mail";
 import Order from "./contact_components/order";
+import Redirect from "./redirect";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "index.html",
+        element: <Redirect />,
+      },
       {
         path: "shrimp",
         element: <Shrimp />,

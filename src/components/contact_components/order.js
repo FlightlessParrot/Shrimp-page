@@ -32,11 +32,11 @@ export default function Order(props) {
           <ContactData id={props.id} />
 
           <div className="inactiveContent">
-            <span>Ilość podstron</span>
+            <label htmlFor="'podstrony'">Ilość podstron</label>
             <input
               type="number" 
               name='page'
-              
+              id='podstrony'
               {...method.register("page")}
               min="1"
               max="25"

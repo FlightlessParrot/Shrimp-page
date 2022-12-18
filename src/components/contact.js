@@ -4,7 +4,7 @@ import Box from './box'
 
 export default function Contact()
 {
-    return (<><div>
+    return (<><div className='boxer'>
         <Box link='mail' name='Mail' />
         <Box link='order' name='Wycena strony'/>
         </div>

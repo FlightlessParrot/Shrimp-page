@@ -29,12 +29,12 @@ export default function ContactData(props) {
       ?
        setError("name", {
           type: 'value',
-          message: "Podaj imię lub firmę"
+          message: "Podaj imię lub firmę."
         })
        : clearErrors("name");
     if (!validate.mail[1] && !validate.tel[1]) {
-      setError("mail", { type: "pusty", message: "Podaj mail lub tel" });
-      setError("tel", { type: "pusty", message: "Podaj imię lub firmę" });
+      setError("mail", { type: "pusty", message: "Podaj mail lub telefon." });
+      setError("tel", { type: "pusty", message: "Podaj imię lub firmę." });
     } else {
        clearErrors("mail");
        clearErrors("tel");
@@ -126,7 +126,7 @@ export default function ContactData(props) {
   return (
     <>
       <div className="inactiveContent">
-        <div>
+        <div className="inputer">
           <ValidationMessage
             empty={validate.name}
             wrong="false"
@@ -143,7 +143,7 @@ export default function ContactData(props) {
             ></input>
           </ValidationMessage>
         </div>
-        <div>
+        <div className="inputer">
           <ValidationMessage
             empty={validate.mail[0]}
             wrong={validate.mail[1]}
@@ -159,7 +159,7 @@ export default function ContactData(props) {
             ></input>
           </ValidationMessage>
         </div>
-        <div>
+        <div className="inputer">
           <ValidationMessage
             empty={validate.tel[0]}
             wrong={validate.tel[1]}

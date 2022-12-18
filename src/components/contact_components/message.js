@@ -22,8 +22,8 @@ export default function Message(props) {
   }
   return (
     <>
-      <div className="inactiveContent">
-        <p>{props.title}</p>
+      <div className="inactiveContent texter">
+        <p className="texttitle">{props.title}</p>
         <div>
           <textarea
          maxLength='800'

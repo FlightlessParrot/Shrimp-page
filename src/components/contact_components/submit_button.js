@@ -29,7 +29,7 @@ export default function SubmitButton() {
   }
 
   return (<>
-    <div>
+    <div className="inputer submiter">
       <input type="submit" onClick={clickHandler} value="Wyślij"></input>
     </div>
     <ErrorMessage control={blad} validate={aktual}><ValidateErrors /></ErrorMessage>

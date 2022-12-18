@@ -25,7 +25,9 @@ h1 {
   text-align: center;
   @include fonts.head;
 }
-div:has(> .box) {
+// div:has(>.box), 
+.boxer {
+ 
   @media only screen and (min-width: 480px) {
     height:150px;
   }
@@ -76,18 +78,20 @@ footer {
   @include fonts.specialFont;
 }
 
-div:has(> input) {
+// div:has(> input), 
+.inputer {
   margin: 8px 6px 8px 4px;
   padding: 10px 10px 10px 10px;
-  label {
-    margin: 4px 4px 4px 4px;
-  }
+  
   input {
     margin: 4px 4px 4px 4px;
   }
 }
-
-div:has(> input[type="submit"]) {
+label {
+    margin: 4px 4px 4px 4px;
+  }
+// div:has(> input[type="submit"]), 
+.submiter {
   display: flex;
   width: 90%;
   margin-right: auto;
@@ -107,7 +111,8 @@ div:has(> input[type="submit"]) {
   }
 }
 
-div:has(> div > textarea) {
+// div:has(> div > textarea), 
+.texter {
   * {
     display: block;
     margin-right: auto;
@@ -161,6 +166,8 @@ div:has(> div > textarea) {
 }
 
 button{
+  width: 50px;
+  height: 30px;
   align-self: flex-end;
   justify-self: center;
   margin-left: auto;
