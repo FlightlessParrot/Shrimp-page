@@ -12,7 +12,7 @@
   @extend %element;
   @include color.contentBox;
   @include distance.contentDistance;
-
+  @include fonts.normalFont;
 
 &:hover {
   box-shadow: 20px 10px 20px color.$moth;
@@ -39,6 +39,7 @@
     @extend %content;
   &::after{
     content: url('../../../public/images/roczka.png');
+    
   }
   }
 
@@ -55,15 +56,17 @@
 
   .content-enter{
     position:relative;
-    left: 2000px;
+    left: 0px;
     opacity: 0;
     @extend %content;
+    transform: rotateX(90deg);
  }
  .content-exit{
   position: relative;
-    right: 0px;
+  left: 0px;
     opacity: 1;
      @extend %content;
+     transform: rotateX(0deg);
  }
  .content-enter-active{
     position: relative;
@@ -71,11 +74,13 @@
     opacity: 1;
     transition: all 0.5s ease-in;
     @extend %content;
+    transform: rotateX(0deg);
  }
  .content-exit-active{
   position: relative;
-  right: 2000px;
+  left: 0px;
   opacity: 0;
   transition: all 0.5s ease-out;
   @extend %content;
+  transform: rotateX(90deg);
  }

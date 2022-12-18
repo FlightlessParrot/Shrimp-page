@@ -3,15 +3,14 @@ export default async function form(dataObject, validate, message) {
   try {
     const data = new FormData();
     for (let key in dataObject) {
-      console.log(key)
-      console.log(dataObject[key])
-      data.append(key, dataObject[key]);
+      console.log(String(dataObject[key]))
+       console.log(typeof String(dataObject[key]))
+      data.append(key, String(dataObject[key]));
     }
-    console.log(data)
-    const response = await fetch("http://127.0.0.1/shrimp/index.php", {
+    
+    const response = await fetch("../server/index.php", {
       method: "POST",
-     // headers: { "Content-Type": "multipart/form-data", },
-     // mode: "no-cors",
+      credentials: 'include',
       body: data,
     
     });

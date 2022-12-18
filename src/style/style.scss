@@ -12,7 +12,8 @@ body {
   background-repeat: no-repeat;
   background-color: color.$backgroundColor;
   @include fonts.normalFont;
-  min-width: 360px;
+  width: 95vw;
+ 
 }
 a {
   text-decoration: none;
@@ -23,11 +24,10 @@ h1 {
   margin: auto;
   text-align: center;
   @include fonts.head;
-  font-size: 1.5em;
 }
 div:has(> .box) {
   @media only screen and (min-width: 480px) {
-    height: 150px;
+    height:150px;
   }
   column-gap: 10px;
   display: flex;
@@ -35,16 +35,18 @@ div:has(> .box) {
   @include distance.contentDistance;
   @include fonts.specialFont;
   .box {
-    flex-basis: 150px;
+    @media only screen and (min-width: 480px) {
+      flex-basis: 150px;
+    }
     flex-shrink: 1;
     background-color: color.$moth;
-    border-radius: 25%;
+    border-radius: 30%;
     text-align: center;
     @media only screen and (min-width: 480px) {
       padding: 60px 10px 10px 10px;
     }
     @media only screen and (max-width: 480px) {
-      padding: 20px 10px 20px 10px;
+      padding: 20px 20px 20px 20px;
     }
     @include halo.halo;
     border-bottom: 6px solid color.$myNavy;
@@ -52,6 +54,8 @@ div:has(> .box) {
   }
 }
 footer {
+  display: flex;
+    align-items: center;
   width: 90%;
   background: linear-gradient(to top, color.$skink, color.$lightMoth);
   border-bottom: 2px solid color.$myNavy;
@@ -59,11 +63,15 @@ footer {
   border-radius: 30px;
   @include fonts.specialFontSec;
   padding: 10px 20px 10px 20px;
+  margin-bottom: 10px;
+  @media only screen and (max-width: 480px) {
+    font-size: small;
+  } 
 
   .companyName {
     font-weight: bold;
-  }
-}
+ 
+}}
 .special {
   @include fonts.specialFont;
 }

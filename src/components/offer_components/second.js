@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Second(){
     return(<><div className="title"><h1>Sklep internetowy</h1></div>
-    <div className="inactiveContent"><b>Projekt jest wyceniany indywidulanie.</b> Standardowy sklep internetowy to koszt ok. 2000 zł netto </div>
+    <div className="inactiveContent"><b>Projekt jest wyceniany indywidulanie.</b> Standardowy sklep internetowy to koszt ok. 2500 zł netto </div>
     <div className="inactiveContent">
     <p className="listTitle">Cena obejmuje:</p><ul>
         <li><span>Wykonanie zindiwidualizowanej strony internetowej. </span>
@@ -20,8 +20,6 @@ export default function Second(){
         <span className="special"> W projekcie kierujemy się wytycznymi klienta. Projekt jest indywidualizowany, 
             a poprawki nanoszone bez dodatkowych opłat.</span></li>
         <li><span>Fixed Price. </span><span className="special">wiesz ile zapłacisz - u nas nie ma ukrytych kosztów</span></li>
-        <li><span> Przeniesienie majątkowych praw autorskich. </span>
-        <span className="special">Kupiona strona będzie w 100% Twoja. Nigdy nie utracisz do niej praw.</span></li>
         <li>Pomoc w umieszczeniu strony na serwerze. </li></ul></div>
         <div className="inactiveContent"><span>Serwis strony (Dodatkowo płatne w subskrypcji 500 zł netto rocznie).</span>
         <span className="special"> Aktualizowanie treści i eliminowanie powstajacych bugów</span>
